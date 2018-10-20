@@ -401,6 +401,8 @@ var Slide = { render: function render() {
     leavePrev: { default: null },
     leaveNext: { default: null },
     steps: { default: 1 },
+    duration: { default: 0 },
+    stepDuration: { default: 0 },
     mouseNavigation: { default: true },
     keyboardNavigation: { default: true }
   },
@@ -460,6 +462,11 @@ var Slide = { render: function render() {
         }, 1000);
       } else {
         clearInterval(this.timerUpdater);
+      }
+    },
+    slideTimer: function slideTimer(val) {
+      if (this.duration !== 0 && val >= this.duration) {
+        this.$parent.nextSlide();
       }
     }
   }

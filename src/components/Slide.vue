@@ -17,6 +17,8 @@ export default {
     leavePrev: {default: null},
     leaveNext: {default: null},
     steps: {default: 1},
+    duration: {default: 0},
+    stepDuration: {default:0},
     mouseNavigation: {default: true},
     keyboardNavigation: {default: true}
   },
@@ -76,6 +78,11 @@ export default {
         }, 1000)
       } else {
         clearInterval(this.timerUpdater)
+      }
+    },
+    slideTimer: function (val) {
+      if(this.duration !== 0 && val >= this.duration ){
+        this.$parent.nextSlide()
       }
     }
   }
