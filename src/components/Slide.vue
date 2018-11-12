@@ -20,7 +20,8 @@ export default {
     duration: {default: 0},
     stepDuration: {default:0},
     mouseNavigation: {default: true},
-    keyboardNavigation: {default: true}
+    keyboardNavigation: {default: true},
+    onEndFun: {default: () => function () { }}
   },
   data: function () {
     return {
@@ -53,6 +54,7 @@ export default {
     nextStep: function () {
       if (this.step === this.steps) {
         this.$parent.nextSlide()
+        this.onEndFun()
       } else {
         this.step++
       }

@@ -404,7 +404,10 @@ var Slide = { render: function render() {
     duration: { default: 0 },
     stepDuration: { default: 0 },
     mouseNavigation: { default: true },
-    keyboardNavigation: { default: true }
+    keyboardNavigation: { default: true },
+    onEndFun: { default: function _default() {
+        return function () {};
+      } }
   },
   data: function data() {
     return {
@@ -437,6 +440,7 @@ var Slide = { render: function render() {
     nextStep: function nextStep() {
       if (this.step === this.steps) {
         this.$parent.nextSlide();
+        this.onEndFun();
       } else {
         this.step++;
       }
