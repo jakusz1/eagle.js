@@ -441,6 +441,7 @@ var Slide = { render: function render() {
       if (this.step === this.steps) {
         this.$parent.nextSlide();
         this.onEndFun();
+        debugger;
       } else {
         this.step++;
       }
