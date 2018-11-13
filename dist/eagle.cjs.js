@@ -444,7 +444,6 @@ var Slide = { render: function render() {
   },
   methods: {
     nextStep: function nextStep() {
-      this.onEndFun();
       if (this.step === this.steps) {
         this.$parent.nextSlide();
       } else {
@@ -476,6 +475,7 @@ var Slide = { render: function render() {
     },
     slideTimer: function slideTimer(val) {
       if (this.duration !== 0 && val >= this.duration) {
+        this.onEndFun();
         this.$parent.nextSlide();
       }
     }

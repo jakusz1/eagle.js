@@ -52,7 +52,6 @@ export default {
   },
   methods: {
     nextStep: function () {
-      this.onEndFun()
       if (this.step === this.steps) {
         this.$parent.nextSlide()
       } else {
@@ -84,6 +83,7 @@ export default {
     },
     slideTimer: function (val) {
       if(this.duration !== 0 && val >= this.duration ){
+        this.onEndFun()
         this.$parent.nextSlide()
       }
     }
